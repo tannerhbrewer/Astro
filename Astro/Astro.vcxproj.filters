@@ -4,6 +4,9 @@
     <Filter Include="Astro">
       <UniqueIdentifier>{0E45D80C-7A59-00BE-43DB-A31DAFAEFCEE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Astro\Events">
+      <UniqueIdentifier>{32F5479F-1E58-D743-C7DD-0FFAB31FA3C6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Astro.h" />
@@ -16,13 +19,21 @@
     <ClInclude Include="src\Astro\EntryPoint.h">
       <Filter>Astro</Filter>
     </ClInclude>
+    <ClInclude Include="src\Astro\Events\ApplicationEvent.h">
+      <Filter>Astro\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Astro\Events\Event.h">
+      <Filter>Astro\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Astro\Events\KeyEvent.h">
+      <Filter>Astro\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Astro\Events\MouseEvent.h">
+      <Filter>Astro\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Astro\Log.h">
       <Filter>Astro</Filter>
     </ClInclude>
-    <ClInclude Include="src\Astro\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Astro\Events\Event.h" />
-    <ClInclude Include="src\Astro\Events\KeyEvent.h" />
-    <ClInclude Include="src\Astro\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">

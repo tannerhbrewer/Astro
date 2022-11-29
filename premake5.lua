@@ -19,6 +19,9 @@ project "Astro"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "aspch.h"
+	pchsource "%{prj.name}/src/aspch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -27,7 +30,8 @@ project "Astro"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src"
 	}
 
 	filter "system:windows"

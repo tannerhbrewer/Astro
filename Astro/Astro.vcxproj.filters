@@ -34,6 +34,7 @@
     <ClInclude Include="src\Astro\Log.h">
       <Filter>Astro</Filter>
     </ClInclude>
+    <ClInclude Include="src\aspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Astro\Log.cpp">
       <Filter>Astro</Filter>
     </ClCompile>
+    <ClCompile Include="src\aspch.cpp" />
   </ItemGroup>
 </Project>

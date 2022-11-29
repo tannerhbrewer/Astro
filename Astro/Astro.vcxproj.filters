@@ -19,6 +19,10 @@
     <ClInclude Include="src\Astro\Log.h">
       <Filter>Astro</Filter>
     </ClInclude>
+    <ClInclude Include="src\Astro\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Astro\Events\Event.h" />
+    <ClInclude Include="src\Astro\Events\KeyEvent.h" />
+    <ClInclude Include="src\Astro\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">

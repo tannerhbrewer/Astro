@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Astro/Log.h"
+
 #ifdef AS_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

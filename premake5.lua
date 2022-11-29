@@ -11,6 +11,11 @@ workspace "Astro"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Astro/vendor/GLFW/include"
+
+include "Astro/vendor/GLFW"
+
 project "Astro"
 	location "Astro"
 	kind "SharedLib"
@@ -30,8 +35,15 @@ project "Astro"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -52,15 +64,17 @@ project "Astro"
 
 	filter "configurations:Debug"
 		defines "AS_DEBUG"
-		symbols "On"
+		buildoptions "/MDd"
 
 	filter "configurations:Release"
 		defines "AS_RELEASE"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "AS_DIST"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
@@ -99,12 +113,14 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "AS_DEBUG"
-		symbols "On"
+		buildoptions "/MDd"
 
 	filter "configurations:Release"
 		defines "AS_RELEASE"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "AS_DIST"
-		optimize "On"
+		runtime "Release"
+		optimize "on"

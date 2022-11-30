@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Astro/vendor/GLFW/include"
 IncludeDir["Glad"] = "Astro/vendor/Glad/include"
 IncludeDir["ImGui"] = "Astro/vendor/imgui"
+IncludeDir["glm"] = "Astro/vendor/glm"
 
 group "Dependencies"
 	include "Astro/vendor/GLFW"
@@ -36,7 +37,9 @@ project "Astro"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -45,7 +48,8 @@ project "Astro"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}",
 	}
 
 	links
@@ -104,7 +108,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Astro/vendor/spdlog/include",
-		"Astro/src"
+		"Astro/src",
+		"Astro/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links

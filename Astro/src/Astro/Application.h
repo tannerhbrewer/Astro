@@ -7,6 +7,7 @@
 #include "Astro/Events/Event.h"
 #include "Astro/Events/ApplicationEvent.h"
 
+#include "Astro/ImGui/ImGuiLayer.h"
 
 namespace Astro {
 
@@ -29,6 +30,7 @@ namespace Astro {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

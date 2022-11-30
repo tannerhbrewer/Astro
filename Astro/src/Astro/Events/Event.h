@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core.h"
+#include "Astro/Core.h"
 
 #include <string>
 #include <functional>
@@ -17,7 +17,7 @@ namespace Astro {
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 

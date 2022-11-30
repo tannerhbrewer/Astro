@@ -93,7 +93,7 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Astro\Astro.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Astro\Astro.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Astro\Astro.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Astro\Astro.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Astro\Astro.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Astro\Astro.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Astro\Astro.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -120,7 +120,7 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Astro\Astro.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Astro\Astro.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Astro\Astro.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Astro\Astro.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Astro\Astro.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Astro\Astro.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Astro\Astro.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -147,7 +147,7 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\Astro\Astro.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Astro\Astro.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Astro\Astro.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Astro\Astro.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Astro\Astro.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Astro\Astro.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Astro\Astro.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -160,11 +160,13 @@
     <ClInclude Include="src\Astro\Events\KeyEvent.h" />
     <ClInclude Include="src\Astro\Events\MouseEvent.h" />
     <ClInclude Include="src\Astro\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Astro\Input.h" />
     <ClInclude Include="src\Astro\Layer.h" />
     <ClInclude Include="src\Astro\LayerStack.h" />
     <ClInclude Include="src\Astro\Log.h" />
     <ClInclude Include="src\Astro\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\aspch.h" />
   </ItemGroup>
@@ -175,6 +177,7 @@
     <ClCompile Include="src\Astro\LayerStack.cpp" />
     <ClCompile Include="src\Astro\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\aspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

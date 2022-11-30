@@ -16,9 +16,11 @@ IncludeDir["GLFW"] = "Astro/vendor/GLFW/include"
 IncludeDir["Glad"] = "Astro/vendor/Glad/include"
 IncludeDir["ImGui"] = "Astro/vendor/imgui"
 
-include "Astro/vendor/GLFW"
-include "Astro/vendor/Glad"
-include "Astro/vendor/imgui"
+group "Dependencies"
+	include "Astro/vendor/GLFW"
+	include "Astro/vendor/Glad"
+	include "Astro/vendor/imgui"
+group ""
 
 project "Astro"
 	location "Astro"
@@ -68,7 +70,7 @@ project "Astro"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"

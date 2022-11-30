@@ -3,6 +3,7 @@
 // For use by Hazel applications
 
 #include "Astro/Application.h"
+#include "Astro/Layer.h"
 #include "Astro/Log.h"
 
 // ---Entry Point---------------------

@@ -37,6 +37,12 @@
     <ClInclude Include="src\Astro\Events\MouseEvent.h">
       <Filter>Astro\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Astro\Layer.h">
+      <Filter>Astro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Astro\LayerStack.h">
+      <Filter>Astro</Filter>
+    </ClInclude>
     <ClInclude Include="src\Astro\Log.h">
       <Filter>Astro</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">
+      <Filter>Astro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Astro\Layer.cpp">
+      <Filter>Astro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Astro\LayerStack.cpp">
       <Filter>Astro</Filter>
     </ClCompile>
     <ClCompile Include="src\Astro\Log.cpp">

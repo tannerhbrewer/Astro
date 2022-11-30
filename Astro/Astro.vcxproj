@@ -159,6 +159,8 @@
     <ClInclude Include="src\Astro\Events\Event.h" />
     <ClInclude Include="src\Astro\Events\KeyEvent.h" />
     <ClInclude Include="src\Astro\Events\MouseEvent.h" />
+    <ClInclude Include="src\Astro\Layer.h" />
+    <ClInclude Include="src\Astro\LayerStack.h" />
     <ClInclude Include="src\Astro\Log.h" />
     <ClInclude Include="src\Astro\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -166,6 +168,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp" />
+    <ClCompile Include="src\Astro\Layer.cpp" />
+    <ClCompile Include="src\Astro\LayerStack.cpp" />
     <ClCompile Include="src\Astro\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\aspch.cpp">

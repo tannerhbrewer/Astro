@@ -10,12 +10,16 @@ public:
 
 	void OnUpdate() override
 	{
-		//AS_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Astro::Event& event) override
 	{
-		//AS_TRACE("{0}", event);
+		if (event.GetEventType() == Astro::EventType::KeyPressed)
+		{
+			Astro::KeyPressedEvent& e = (Astro::KeyPressedEvent&)event;
+
+			AS_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 
 };

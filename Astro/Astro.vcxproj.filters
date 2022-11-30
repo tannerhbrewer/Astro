@@ -71,6 +71,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\aspch.h" />
+    <ClInclude Include="src\Astro\KeyCodes.h" />
+    <ClInclude Include="src\Astro\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">

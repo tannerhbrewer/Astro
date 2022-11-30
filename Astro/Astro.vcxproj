@@ -161,9 +161,11 @@
     <ClInclude Include="src\Astro\Events\MouseEvent.h" />
     <ClInclude Include="src\Astro\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Astro\Input.h" />
+    <ClInclude Include="src\Astro\KeyCodes.h" />
     <ClInclude Include="src\Astro\Layer.h" />
     <ClInclude Include="src\Astro\LayerStack.h" />
     <ClInclude Include="src\Astro\Log.h" />
+    <ClInclude Include="src\Astro\MouseButtonCodes.h" />
     <ClInclude Include="src\Astro\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />

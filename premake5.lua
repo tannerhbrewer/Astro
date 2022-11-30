@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Astro/vendor/GLFW/include"
 IncludeDir["Glad"] = "Astro/vendor/Glad/include"
+IncludeDir["ImGui"] = "Astro/vendor/imgui"
 
 include "Astro/vendor/GLFW"
 include "Astro/vendor/Glad"
+include "Astro/vendor/imgui"
 
 project "Astro"
 	location "Astro"
@@ -40,6 +42,7 @@ project "Astro"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.Glad}"
 	}
 
@@ -47,6 +50,7 @@ project "Astro"
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 

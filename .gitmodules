@@ -4,3 +4,6 @@
 [submodule "Astro/vendor/GLFW"]
 	path = Astro/vendor/GLFW
 	url = https://github.com/TheCherno/glfw.git
+[submodule "Astro/vendor/imgui"]
+	path = Astro/vendor/imgui
+	url = https://github.com/TheCherno/imgui.git

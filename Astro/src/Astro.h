@@ -6,6 +6,8 @@
 #include "Astro/Layer.h"
 #include "Astro/Log.h"
 
+#include "Astro/ImGui/ImGuiLayer.h"
+
 // ---Entry Point---------------------
 #include "Astro/EntryPoint.h"
 // -----------------------------------

@@ -26,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushLayer(new Astro::ImGuiLayer());
 	}
 
 	~Sandbox()

@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Astro/vendor/GLFW/include"
+IncludeDir["Glad"] = "Astro/vendor/Glad/include"
 
 include "Astro/vendor/GLFW"
+include "Astro/vendor/Glad"
 
 project "Astro"
 	location "Astro"
@@ -37,12 +39,14 @@ project "Astro"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Astro"
 		defines
 		{
 			"AS_PLATFORM_WINDOWS",
-			"AS_BUILD_DLL"
+			"AS_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

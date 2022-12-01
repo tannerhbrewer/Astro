@@ -8,6 +8,7 @@
 #include "Astro/Events/ApplicationEvent.h"
 
 #include "Astro/ImGui/ImGuiLayer.h"
+#include "Astro/Renderer/Shader.h"
 
 namespace Astro {
 
@@ -35,6 +36,7 @@ namespace Astro {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};

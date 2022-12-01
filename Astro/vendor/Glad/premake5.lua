@@ -1,7 +1,7 @@
 project "Glad"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -22,15 +22,9 @@ project "Glad"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines "AS_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
-		defines "AS_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "AS_DIST"
 		runtime "Release"
 		optimize "on"

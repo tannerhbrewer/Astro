@@ -3,11 +3,15 @@
 #pragma once
 
 #ifdef AS_PLATFORM_WINDOWS
+#if AS_DYNAMIC_LINK
 	#ifdef AS_BUILD_DLL
 		#define ASTRO_API __declspec(dllexport)
 	#else
 		#define ASTRO_API __declspec(dllimport)
 	#endif
+#else
+	#define ASTRO_API
+#endif
 #else
 	#error Astro only supports Windows!
 #endif

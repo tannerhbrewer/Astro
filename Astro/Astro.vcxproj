@@ -158,7 +158,9 @@
     <ClInclude Include="src\Astro\LayerStack.h" />
     <ClInclude Include="src\Astro\Log.h" />
     <ClInclude Include="src\Astro\MouseButtonCodes.h" />
+    <ClInclude Include="src\Astro\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Astro\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\aspch.h" />
@@ -586,6 +588,7 @@
     <ClCompile Include="src\Astro\Layer.cpp" />
     <ClCompile Include="src\Astro\LayerStack.cpp" />
     <ClCompile Include="src\Astro\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\aspch.cpp">

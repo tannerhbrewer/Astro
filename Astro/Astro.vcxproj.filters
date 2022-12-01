@@ -13,8 +13,14 @@
     <Filter Include="src\Astro\ImGui">
       <UniqueIdentifier>{4F00CA81-BB8B-3746-C49C-BA3A30A79346}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Astro\Renderer">
+      <UniqueIdentifier>{AB38F9E5-971C-BA3B-007D-B48EEC7FA4BD}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
@@ -87,8 +93,14 @@
     <ClInclude Include="src\Astro\MouseButtonCodes.h">
       <Filter>src\Astro</Filter>
     </ClInclude>
+    <ClInclude Include="src\Astro\Renderer\GraphicsContext.h">
+      <Filter>src\Astro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Astro\Window.h">
       <Filter>src\Astro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1347,8 +1359,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Astro\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">
@@ -1369,6 +1379,9 @@
     <ClCompile Include="src\Astro\Log.cpp">
       <Filter>src\Astro</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1378,6 +1391,5 @@
     <ClCompile Include="src\aspch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

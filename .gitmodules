@@ -3,10 +3,10 @@
 	url = https://github.com/gabime/spdlog.git
 [submodule "Astro/vendor/GLFW"]
 	path = Astro/vendor/GLFW
-	url = https://github.com/TheCherno/glfw.git
+	url = https://github.com/tannerhbrewer/glfw.git
 [submodule "Astro/vendor/imgui"]
 	path = Astro/vendor/imgui
-	url = https://github.com/TheCherno/imgui.git
+	url = https://github.com/tannerhbrewer/imgui.git
 [submodule "Astro/vendor/glm"]
 	path = Astro/vendor/glm
 	url = https://github.com/g-truc/glm.git

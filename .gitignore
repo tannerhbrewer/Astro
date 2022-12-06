@@ -4,4 +4,7 @@ bin-int/
 
 # Files
 *.user
-Sandbox/imgui.ini
+*.ini
+*.sln
+*.vcxproj
+*.vcxproj.filters

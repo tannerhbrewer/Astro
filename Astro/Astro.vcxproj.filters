@@ -96,6 +96,9 @@
     <ClInclude Include="src\Astro\Renderer\GraphicsContext.h">
       <Filter>src\Astro\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Astro\Renderer\Shader.h">
+      <Filter>src\Astro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Astro\Window.h">
       <Filter>src\Astro</Filter>
     </ClInclude>
@@ -1359,7 +1362,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Astro\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Astro\Renderer\Buffer.h" />
+    <ClInclude Include="src\Astro\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Astro\Application.cpp">
@@ -1380,6 +1385,9 @@
     <ClCompile Include="src\Astro\Log.cpp">
       <Filter>src\Astro</Filter>
     </ClCompile>
+    <ClCompile Include="src\Astro\Renderer\Shader.cpp">
+      <Filter>src\Astro\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1392,6 +1400,8 @@
     <ClCompile Include="src\aspch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Astro\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Astro\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Astro\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
   </ItemGroup>
 </Project>

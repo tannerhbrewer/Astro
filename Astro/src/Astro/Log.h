@@ -27,11 +27,11 @@ namespace Astro {
 #define AS_CORE_INFO(...)     ::Astro::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define AS_CORE_WARN(...)     ::Astro::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define AS_CORE_ERROR(...)    ::Astro::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define AS_CORE_FATAL(...)    ::Astro::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define AS_CORE_FATAL(...)    ::Astro::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
 #define AS_TRACE(...)	      ::Astro::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define AS_INFO(...)	      ::Astro::Log::GetClientLogger()->info(__VA_ARGS__)
 #define AS_WARN(...)	      ::Astro::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define AS_ERROR(...)	      ::Astro::Log::GetClientLogger()->error(__VA_ARGS__)
-#define AS_FATAL(...)	      ::Astro::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define AS_FATAL(...)	      ::Astro::Log::GetClientLogger()->critical(__VA_ARGS__)

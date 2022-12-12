@@ -1,7 +1,7 @@
 #include "aspch.h"
 #include "Renderer.h"
 
-namespace Lunar {
+namespace Astro {
 
 	RendererAPI Renderer::s_RendererAPI = RendererAPI::OpenGL;
 }

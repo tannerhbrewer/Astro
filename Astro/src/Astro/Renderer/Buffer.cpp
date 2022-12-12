@@ -5,7 +5,7 @@
 
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
-namespace Lunar {
+namespace Astro {
 
 	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
 	{

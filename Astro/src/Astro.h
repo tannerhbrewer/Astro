@@ -12,6 +12,15 @@
 
 #include "Astro/ImGui/ImGuiLayer.h"
 
+#include "Astro/Renderer/Renderer.h"
+#include "Astro/Renderer/RenderCommand.h"
+
+#include "Astro/Renderer/Buffer.h"
+#include "Astro/Renderer/Shader.h"
+#include "Astro/Renderer/VertexArray.h"
+
+#include "Astro/Renderer/OrthographicCamera.h"
+
 // ---Entry Point---------------------
 #include "Astro/EntryPoint.h"
 // -----------------------------------

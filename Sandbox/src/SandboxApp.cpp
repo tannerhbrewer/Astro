@@ -1,10 +1,14 @@
 #include <Astro.h>
 
+#include "imgui/imgui.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+
 class ExampleLayer : public Astro::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f, 0.0f, 0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f, 0.0f, 0.0f), m_SquarePosition(0.0f)
 	{
 		m_VertexArray.reset(Astro::VertexArray::Create());
 
@@ -31,10 +35,10 @@ public:
 		m_SquareVA.reset(Astro::VertexArray::Create());
 
 		float squareVertices[3 * 4] = {
-			-0.75f, -0.75f, 0.0f,
-			 0.75f, -0.75f, 0.0f,
-			 0.75f,  0.75f, 0.0f,
-			-0.75f,  0.75f, 0.0f
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f,
+			 0.5f,  0.5f, 0.0f,
+			-0.5f,  0.5f, 0.0f
 		};
 
 		std::shared_ptr<Astro::VertexBuffer> squareVB;
@@ -56,6 +60,7 @@ public:
 			layout(location = 1) in vec4 a_Color;
 
 			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
 
 			out vec3 v_Position;
 			out vec4 v_Color;
@@ -63,7 +68,7 @@ public:
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -90,11 +95,12 @@ public:
 			out vec3 v_Position;
 
 			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
 
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -114,7 +120,7 @@ public:
 
 	void OnUpdate(Astro::Timestep ts) override
 	{
-		AS_TRACE("Delta time; {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
+		//AS_TRACE("Delta time; {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
 
 		if (Astro::Input::IsKeyPressed(AS_KEY_W))
 			m_CameraPosition.y += m_CameraSpeed * ts;
@@ -126,21 +132,26 @@ public:
 		else if (Astro::Input::IsKeyPressed(AS_KEY_D))
 			m_CameraPosition.x += m_CameraSpeed * ts;
 
-		if (Astro::Input::IsKeyPressed(AS_KEY_Q))
-			m_CameraRotation += m_CameraSpeedRotation * ts;
-		else if (Astro::Input::IsKeyPressed(AS_KEY_E))
-			m_CameraRotation -= m_CameraSpeedRotation * ts;
-
-
 		Astro::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Astro::RenderCommand::Clear();
 
 		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
+		m_Camera.SetRotation(0.0f);
 
 		Astro::Renderer::BeginScene(m_Camera);
 
-		Astro::Renderer::Submit(m_BlueShader, m_SquareVA);
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+		for (int y = 0; y < 15; y++)
+		{
+			for (int x = 0; x < 15; x++)
+			{
+				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
+				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+				Astro::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+			}
+		}
+
 		Astro::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Astro::Renderer::EndScene();
@@ -183,8 +194,7 @@ private:
 	glm::vec3 m_CameraPosition;
 	float m_CameraSpeed = 2.0f;
 
-	float m_CameraRotation = 0.0f;
-	float m_CameraSpeedRotation = 100.0f;
+	glm::vec3 m_SquarePosition;
 };
 
 class Sandbox : public Astro::Application

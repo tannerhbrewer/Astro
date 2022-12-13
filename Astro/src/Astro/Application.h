@@ -7,6 +7,8 @@
 #include "Astro/Events/Event.h"
 #include "Astro/Events/ApplicationEvent.h"
 
+#include "Astro/Core/Timestep.h"
+
 #include "Astro/ImGui/ImGuiLayer.h"
 
 namespace Astro {
@@ -28,11 +30,12 @@ namespace Astro {
 		inline static Application& Get() { return *s_Instance;  }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};

@@ -6,6 +6,8 @@
 #include "Astro/Layer.h"
 #include "Astro/Log.h"
 
+#include "Astro/Core/Timestep.h"
+
 #include "Astro/Input.h"
 #include "Astro/KeyCodes.h"
 #include "Astro/MouseButtonCodes.h"

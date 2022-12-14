@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "Astro/vendor/GLFW/include"
 IncludeDir["Glad"] = "Astro/vendor/Glad/include"
 IncludeDir["ImGui"] = "Astro/vendor/imgui"
 IncludeDir["glm"] = "Astro/vendor/glm"
+IncludeDir["stb_image"] = "Astro/vendor/stb_image"
 
 group "Dependencies"
 	include "Astro/vendor/GLFW"
@@ -40,6 +41,8 @@ project "Astro"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -57,6 +60,7 @@ project "Astro"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

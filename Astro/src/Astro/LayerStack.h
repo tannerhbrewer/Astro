@@ -7,7 +7,7 @@
 
 namespace Astro {
 
-	class ASTRO_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

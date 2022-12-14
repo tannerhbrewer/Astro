@@ -22,7 +22,7 @@ namespace Astro {
 	};
 
 	// Interface representing a desktop system based Window
-	class ASTRO_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;

@@ -13,7 +13,7 @@
 
 namespace Astro {
 
-	class ASTRO_API Application
+	class Application
 	{
 	public:
 		Application();

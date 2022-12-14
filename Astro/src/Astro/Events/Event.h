@@ -37,7 +37,7 @@ namespace Astro {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class ASTRO_API Event
+	class Event
 	{
 	public:
 		bool Handled = false;

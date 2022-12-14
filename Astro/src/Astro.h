@@ -19,6 +19,7 @@
 
 #include "Astro/Renderer/Buffer.h"
 #include "Astro/Renderer/Shader.h"
+#include "Astro/Renderer/Texture.h"
 #include "Astro/Renderer/VertexArray.h"
 
 #include "Astro/Renderer/OrthographicCamera.h"

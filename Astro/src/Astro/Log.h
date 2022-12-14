@@ -8,7 +8,7 @@
 
 namespace Astro {
 
-	class ASTRO_API Log
+	class Log
 	{
 	public:
 		static void Init();

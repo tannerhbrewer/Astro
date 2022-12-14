@@ -21,7 +21,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<Astro::VertexBuffer> vertexBuffer;
+		Astro::Ref<Astro::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Astro::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Astro::BufferLayout layout = {
 			{ Astro::ShaderDataType::Float3, "a_Position" },
@@ -31,7 +31,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Astro::IndexBuffer> indexBuffer;
+		Astro::Ref<Astro::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Astro::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -44,7 +44,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<Astro::VertexBuffer> squareVB;
+		Astro::Ref<Astro::VertexBuffer> squareVB;
 		squareVB.reset(Astro::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ Astro::ShaderDataType::Float3, "a_Position" }
@@ -52,7 +52,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Astro::IndexBuffer> squareIB;
+		Astro::Ref<Astro::IndexBuffer> squareIB;
 		squareIB.reset(Astro::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -196,11 +196,11 @@ public:
 		return false;
 	}
 private:
-	std::shared_ptr<Astro::Shader> m_Shader;
-	std::shared_ptr<Astro::VertexArray> m_VertexArray;
+	Astro::Ref<Astro::Shader> m_Shader;
+	Astro::Ref<Astro::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Astro::Shader> m_FlatColorShader;
-	std::shared_ptr<Astro::VertexArray> m_SquareVA;
+	Astro::Ref<Astro::Shader> m_FlatColorShader;
+	Astro::Ref<Astro::VertexArray> m_SquareVA;
 
 	Astro::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

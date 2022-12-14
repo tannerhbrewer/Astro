@@ -1,6 +1,6 @@
 #pragma once
 
-#pragma once
+#include <memory>
 
 #ifdef AS_PLATFORM_WINDOWS
 #if AS_DYNAMIC_LINK
@@ -27,3 +27,13 @@
 #define BIT(x) (1 << x)
 
 #define AS_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+namespace Astro {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+}

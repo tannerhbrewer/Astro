@@ -155,6 +155,7 @@ public:
 		m_TextureShader.reset(Astro::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Astro::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_Logo = Astro::Texture2D::Create("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -200,6 +201,9 @@ public:
 
 		m_Texture->Bind();
 		Astro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		m_Logo->Bind();
+		Astro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		
 		//shader triangle
 		//Astro::Renderer::Submit(m_Shader, m_VertexArray);
@@ -243,7 +247,7 @@ private:
 	Astro::Ref<Astro::Shader> m_FlatColorShader, m_TextureShader;
 	Astro::Ref<Astro::VertexArray> m_SquareVA;
 
-	Astro::Ref<Astro::Texture2D> m_Texture;
+	Astro::Ref<Astro::Texture2D> m_Texture, m_Logo;
 
 	glm::vec3 m_SquarePosition;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };

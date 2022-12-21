@@ -155,7 +155,7 @@ public:
 		m_TextureShader.reset(Astro::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Astro::Texture2D::Create("assets/textures/Checkerboard.png");
-		m_Logo = Astro::Texture2D::Create("assets/textures/ChernoLogo.png");
+		m_Logo = Astro::Texture2D::Create("assets/textures/AstroLogo.png");
 
 		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);

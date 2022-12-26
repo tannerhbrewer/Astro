@@ -18,6 +18,8 @@ namespace Astro {
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		AS_CORE_ASSERT(status, "Failed to initialize Glad.")
+
+		AS_CORE_ASSERT(GLVersion.major > 4 || (GLVersion.major == 4 && GLVersion.minor >= 5), "Astro requires at least OpenGL version 4.5!");
 	}
 
 	void OpenGLContext::SwapBuffers()

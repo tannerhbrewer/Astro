@@ -1,9 +1,14 @@
-.vs/
-bin/
+#binaries
+**/bin/
+!vendor/bin/premake/
 bin-int/
 
 # Files
 *.user
-*.sln
-*.vcxproj
-*.vcxproj.filters
+
+#visual studio files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user

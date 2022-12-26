@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Astro/Input.h"
+#include "Astro/Core/Input.h"
 
 namespace Astro {
 

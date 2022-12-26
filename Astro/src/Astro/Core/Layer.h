@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Astro/Core.h"
+#include "Astro/Core/Core.h"
 #include "Astro/Events/Event.h"
 #include "Astro/Core/Timestep.h"
 

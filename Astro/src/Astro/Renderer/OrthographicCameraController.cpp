@@ -1,8 +1,8 @@
 #include "aspch.h"
 #include "OrthographicCameraController.h"
 
-#include "Astro/Input.h"
-#include "Astro/KeyCodes.h"
+#include "Astro/Core/Input.h"
+#include "Astro/Core/KeyCodes.h"
 
 namespace Astro {
 

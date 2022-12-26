@@ -1,7 +1,7 @@
 #include "aspch.h"
 #include "Application.h"
 
-#include "Astro/Log.h"
+#include "Astro/Core/Log.h"
 
 #include "Astro/Renderer/Renderer.h"
 

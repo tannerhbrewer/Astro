@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Astro/Core.h"
+#include "Astro/Core/Core.h"
 
 namespace Astro {
 

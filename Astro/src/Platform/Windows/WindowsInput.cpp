@@ -1,7 +1,7 @@
 #include "aspch.h"
 #include "WindowsInput.h"
 
-#include "Astro/Application.h"
+#include "Astro/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Astro {

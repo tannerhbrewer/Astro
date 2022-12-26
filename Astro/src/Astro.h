@@ -2,16 +2,16 @@
 
 // For use by Astro applications
 
-#include "Astro/Application.h"
-#include "Astro/Layer.h"
-#include "Astro/Log.h"
+#include "Astro/Core/Application.h"
+#include "Astro/Core/Layer.h"
+#include "Astro/Core/Log.h"
 
 #include "Astro/Core/Timestep.h"
 
-#include "Astro/Input.h"
-#include "Astro/KeyCodes.h"
-#include "Astro/MouseButtonCodes.h"
-#include "Astro/OrthographicCameraController.h"
+#include "Astro/Core/Input.h"
+#include "Astro/Core/KeyCodes.h"
+#include "Astro/Core/MouseButtonCodes.h"
+#include "Astro/Renderer/OrthographicCameraController.h"
 
 #include "Astro/ImGui/ImGuiLayer.h"
 
@@ -26,5 +26,5 @@
 #include "Astro/Renderer/OrthographicCamera.h"
 
 // ---Entry Point---------------------
-#include "Astro/EntryPoint.h"
+#include "Astro/Core/EntryPoint.h"
 // -----------------------------------

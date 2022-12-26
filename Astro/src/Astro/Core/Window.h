@@ -2,7 +2,7 @@
 
 #include "aspch.h"
 
-#include "Astro/Core.h"
+#include "Astro/Core/Core.h"
 #include "Astro/Events/Event.h"
 
 namespace Astro {

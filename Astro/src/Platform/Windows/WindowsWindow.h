@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Astro/Window.h"
+#include "Astro/Core/Window.h"
 #include "Astro/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Astro/Core.h"
+#include "Astro/Core/Core.h"
 
 #include <string>
 #include <functional>

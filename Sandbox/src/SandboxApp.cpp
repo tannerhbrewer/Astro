@@ -11,7 +11,7 @@ class ExampleLayer : public Astro::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f, 0.0f, 0.0f), m_SquarePosition(0.0f)
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Astro::VertexArray::Create());
 
@@ -135,25 +135,14 @@ public:
 
 	void OnUpdate(Astro::Timestep ts) override
 	{
-		//AS_TRACE("Delta time; {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Astro::Input::IsKeyPressed(AS_KEY_W))
-			m_CameraPosition.y += m_CameraSpeed * ts;
-		else if (Astro::Input::IsKeyPressed(AS_KEY_S))
-			m_CameraPosition.y -= m_CameraSpeed * ts;
-
-		if (Astro::Input::IsKeyPressed(AS_KEY_A))
-			m_CameraPosition.x -= m_CameraSpeed * ts;
-		else if (Astro::Input::IsKeyPressed(AS_KEY_D))
-			m_CameraPosition.x += m_CameraSpeed * ts;
-
+		// Render
 		Astro::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Astro::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(0.0f);
-
-		Astro::Renderer::BeginScene(m_Camera);
+		Astro::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -192,8 +181,9 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(Astro::Event& event) override
+	void OnEvent(Astro::Event& e) override
 	{
+		m_CameraController.OnEvent(e);
 	}
 private:
 	Astro::ShaderLibrary m_ShaderLibrary;
@@ -209,9 +199,7 @@ private:
 	glm::vec3 m_SquarePosition;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 
-	Astro::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraSpeed = 2.0f;
+	Astro::OrthographicCameraController m_CameraController;
 };
 
 class Sandbox : public Astro::Application

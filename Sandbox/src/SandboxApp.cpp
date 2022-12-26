@@ -91,7 +91,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Astro::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Astro::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -122,15 +122,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Astro::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Astro::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Astro::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Astro::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_Logo = Astro::Texture2D::Create("assets/textures/AstroLogo.png");
 
-		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Astro::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Astro::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Astro::Timestep ts) override
@@ -171,11 +171,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Astro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Astro::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_Logo->Bind();
-		Astro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Astro::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		
 		//shader triangle
 		//Astro::Renderer::Submit(m_Shader, m_VertexArray);
@@ -192,31 +194,14 @@ public:
 
 	void OnEvent(Astro::Event& event) override
 	{
-		Astro::EventDispatcher dispatcher(event);
-		//dispatcher.Dispatch<Astro::KeyPressedEvent>(AS_BIND_EVENT_FN(ExampleLayer::OnKeyPressedEvent));
-	}
-
-	bool OnKeyPressedEvent(Astro::KeyPressedEvent& event)
-	{
-		if (event.GetKeyCode() == AS_KEY_LEFT)
-			m_CameraPosition.x += m_CameraSpeed;
-
-		if (event.GetKeyCode() == AS_KEY_RIGHT)
-			m_CameraPosition.x -= m_CameraSpeed;
-
-		if (event.GetKeyCode() == AS_KEY_UP)
-			m_CameraPosition.y -= m_CameraSpeed;
-
-		if (event.GetKeyCode() == AS_KEY_DOWN)
-			m_CameraPosition.y += m_CameraSpeed;
-
-		return false;
 	}
 private:
+	Astro::ShaderLibrary m_ShaderLibrary;
+
 	Astro::Ref<Astro::Shader> m_Shader;
 	Astro::Ref<Astro::VertexArray> m_VertexArray;
 
-	Astro::Ref<Astro::Shader> m_FlatColorShader, m_TextureShader;
+	Astro::Ref<Astro::Shader> m_FlatColorShader;
 	Astro::Ref<Astro::VertexArray> m_SquareVA;
 
 	Astro::Ref<Astro::Texture2D> m_Texture, m_Logo;

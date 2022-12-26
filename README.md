@@ -1,4 +1,4 @@
-![Astro](/Resources/Branding/Astro_Engine_Logo/png?raw=true "Astro")
+![Astro](/Resources/Branding/Astro_Engine_Logo.png?raw=true "Astro")
 
 Astro is an engine made following a series on YouTube by thecherno at [thecherno.com/engine](https://thecherno.com/engine).
 
@@ -8,7 +8,7 @@ Developed currently only in Visual Studio 2022, only Windows is supported at the
 
 Clone the repository using git:
 
-'git clone --recursive https://github.com/tannerhbrewer/Astro'
+`git clone --recursive https://github.com/tannerhbrewer/Astro`
 
 ## Future Plans
 

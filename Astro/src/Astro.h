@@ -24,7 +24,3 @@
 #include "Astro/Renderer/VertexArray.h"
 
 #include "Astro/Renderer/OrthographicCamera.h"
-
-// ---Entry Point---------------------
-#include "Astro/Core/EntryPoint.h"
-// -----------------------------------

@@ -16,6 +16,7 @@
 #include "Astro/ImGui/ImGuiLayer.h"
 
 #include "Astro/Renderer/Renderer.h"
+#include "Astro/Renderer/Renderer2D.h"
 #include "Astro/Renderer/RenderCommand.h"
 
 #include "Astro/Renderer/Buffer.h"

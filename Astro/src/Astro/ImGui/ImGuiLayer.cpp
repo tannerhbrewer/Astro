@@ -1,9 +1,9 @@
 #include "aspch.h"
-#include "ImGuiLayer.h"
+#include "Astro/ImGui/ImGuiLayer.h"
 
-#include "imgui.h"
-#include "backends/imgui_impl_glfw.h"
-#include "backends/imgui_impl_opengl3.h"
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 
 #include "Astro/Core/Application.h"
 

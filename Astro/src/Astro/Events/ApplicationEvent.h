@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Event.h"
+#include "Astro/Events/Event.h"
 
 #include <sstream>
 
@@ -31,7 +31,7 @@ namespace Astro {
 	class WindowCloseEvent : public Event
 	{
 	public:
-		WindowCloseEvent() {}
+		WindowCloseEvent() = default;
 
 		EVENT_CLASS_TYPE(WindowClose)
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
@@ -49,7 +49,7 @@ namespace Astro {
 	class AppUpdateEvent : public Event
 	{
 	public:
-		AppUpdateEvent() {}
+		AppUpdateEvent() = default;
 
 		EVENT_CLASS_TYPE(AppUpdate)
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
@@ -58,7 +58,7 @@ namespace Astro {
 	class AppRenderEvent : public Event
 	{
 	public:
-		AppRenderEvent() {}
+		AppRenderEvent() = default;
 
 		EVENT_CLASS_TYPE(AppRender)
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)

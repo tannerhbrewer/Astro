@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Astro/Core/Core.h"
-#include "Layer.h"
+#include "Astro/Core/Layer.h"
 
 #include <vector>
 
@@ -10,7 +10,7 @@ namespace Astro {
 	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

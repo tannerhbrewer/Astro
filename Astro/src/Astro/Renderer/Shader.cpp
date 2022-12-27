@@ -1,7 +1,7 @@
 #include "aspch.h"
-#include "Shader.h"
 
-#include "Renderer.h"
+#include "Astro/Renderer/Shader.h"
+#include "Astro/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Astro {
@@ -11,7 +11,7 @@ namespace Astro {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    AS_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		AS_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -23,7 +23,7 @@ namespace Astro {
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:    AS_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:  return  std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		AS_CORE_ASSERT(false, "Unknown RendererAPI!");

@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Astro/Core/Core.h"
+#include "aspch.h"
 
-#include <string>
-#include <functional>
+#include "Astro/Core/Core.h"
 
 namespace Astro {
 

@@ -2,6 +2,8 @@
 
 // For use by Astro applications
 
+#include "Astro/Core/Core.h"
+
 #include "Astro/Core/Application.h"
 #include "Astro/Core/Layer.h"
 #include "Astro/Core/Log.h"

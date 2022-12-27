@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Astro/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Astro/Renderer/Texture.h"
 
 namespace Astro {
 

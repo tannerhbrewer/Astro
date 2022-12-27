@@ -1,19 +1,14 @@
 #include "aspch.h"
-#include "Application.h"
 
+#include "Astro/Core/Application.h"
 #include "Astro/Core/Log.h"
+#include "Astro/Core/Input.h"
 
 #include "Astro/Renderer/Renderer.h"
-
-#include <glad/glad.h>
-
-#include "Input.h"
 
 #include <GLFW/glfw3.h>
 
 namespace Astro {
-
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
@@ -22,11 +17,10 @@ namespace Astro {
 		AS_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(AS_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
-
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
@@ -35,7 +29,7 @@ namespace Astro {
 
 	Application::~Application()
 	{
-
+		Renderer::Shutdown();
 	}
 	
 	void Application::PushLayer(Layer* layer)
@@ -51,8 +45,8 @@ namespace Astro {
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+		dispatcher.Dispatch<WindowCloseEvent>(AS_BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(AS_BIND_EVENT_FN(Application::OnWindowResize));
 
 		//AS_CORE_TRACE("{0}", e);
 

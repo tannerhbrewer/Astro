@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Event.h"
+#include "Astro/Events/Event.h"
 
 namespace Astro {
 

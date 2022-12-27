@@ -1,12 +1,7 @@
 #include "aspch.h"
-#include "LayerStack.h"
+#include "Astro/Core/LayerStack.h"
 
 namespace Astro {
-
-	LayerStack::LayerStack()
-	{
-		
-	}
 
 	LayerStack::~LayerStack()
 	{

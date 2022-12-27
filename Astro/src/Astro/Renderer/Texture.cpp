@@ -1,7 +1,7 @@
 #include "aspch.h"
-#include "Texture.h"
 
-#include "Renderer.h"
+#include "Astro/Renderer/Texture.h"
+#include "Astro/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGlTexture.h"
 
 namespace Astro {

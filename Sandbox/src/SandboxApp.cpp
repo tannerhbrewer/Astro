@@ -1,9 +1,7 @@
 #include <Astro.h>
 #include <Astro/Core/EntryPoint.h>
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -24,8 +22,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		Astro::Ref<Astro::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Astro::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Astro::Ref<Astro::VertexBuffer> vertexBuffer = Astro::VertexBuffer::Create(vertices, sizeof(vertices));
 		Astro::BufferLayout layout = {
 			{ Astro::ShaderDataType::Float3, "a_Position" },
 			{ Astro::ShaderDataType::Float4, "a_Color" }
@@ -34,8 +31,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Astro::Ref<Astro::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Astro::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Astro::Ref<Astro::IndexBuffer> indexBuffer = Astro::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Astro::VertexArray::Create();
@@ -47,8 +43,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Astro::Ref<Astro::VertexBuffer> squareVB;
-		squareVB.reset(Astro::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		Astro::Ref<Astro::VertexBuffer> squareVB = Astro::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
 			{ Astro::ShaderDataType::Float3, "a_Position" },
 			{ Astro::ShaderDataType::Float2, "a_TexCoord" }
@@ -57,8 +52,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Astro::Ref<Astro::IndexBuffer> squareIB;
-		squareIB.reset(Astro::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		Astro::Ref<Astro::IndexBuffer> squareIB = Astro::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
@@ -127,13 +121,13 @@ public:
 
 		m_FlatColorShader = Astro::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/texture.glsl");
 
 		m_Texture = Astro::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_Logo = Astro::Texture2D::Create("assets/textures/AstroLogo.png");
 
-		std::dynamic_pointer_cast<Astro::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Astro::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Astro::Timestep ts) override
@@ -149,8 +143,8 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Astro::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 
 		for (int y = 0; y < 15; y++)

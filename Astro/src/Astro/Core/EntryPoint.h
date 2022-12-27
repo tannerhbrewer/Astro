@@ -1,4 +1,5 @@
 #pragma once
+#include "Astro/Core/Core.h"
 
 #ifdef AS_PLATFORM_WINDOWS
 

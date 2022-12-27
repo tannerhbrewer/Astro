@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderCommand.h"
+#include "Astro/Renderer/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "Astro/Renderer/OrthographicCamera.h"
+#include "Astro/Renderer/Shader.h"
 
 namespace Astro {
 
@@ -11,6 +11,8 @@ namespace Astro {
 	{
 	public:
 		static void Init();
+		static void Shutdown();
+
 		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(OrthographicCamera& camera);

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Astro/Core/Core.h"
 
-#include "Window.h"
+#include "Astro/Core/Window.h"
 #include "Astro/Core/LayerStack.h"
 #include "Astro/Events/Event.h"
 #include "Astro/Events/ApplicationEvent.h"

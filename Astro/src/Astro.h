@@ -12,7 +12,7 @@
 
 #include "Astro/Core/Input.h"
 #include "Astro/Core/KeyCodes.h"
-#include "Astro/Core/MouseButtonCodes.h"
+#include "Astro/Core/MouseCodes.h"
 #include "Astro/Renderer/OrthographicCameraController.h"
 
 #include "Astro/ImGui/ImGuiLayer.h"

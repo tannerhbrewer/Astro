@@ -14,6 +14,8 @@
 
 #include "Astro/Core/Log.h"
 
+#include "Astro/Debug/Instrumentor.h"
+
 #ifdef AS_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

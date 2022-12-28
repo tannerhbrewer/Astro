@@ -12,22 +12,21 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	AS_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = Astro::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach()
 {
+	AS_PROFILE_FUNCTION();
 }
 
 void Sandbox2D::OnUpdate(Astro::Timestep ts)
 {
 	AS_PROFILE_FUNCTION();
 
-	// Update
-	{
-		AS_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
 	// Render
 	{

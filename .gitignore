@@ -3,8 +3,10 @@
 !vendor/bin/premake/
 bin-int/
 
-# Files
+# Astro Files
 *.user
+*.log
+Sandbox/*.json
 
 #visual studio files
 .vs/
